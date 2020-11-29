@@ -1,0 +1,120 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 7,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 490.0, 79.0, 564.0, 967.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 16.0, 905.0, 35.0, 22.0 ],
+					"text" : "out 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "History ampSum(0.);\n//History k(0.);\nHistory ivector(0.);\nBuffer barkIndex(\"barkScale\");\nBuffer barkAmpli(\"barkAmp\");\nBuffer barkBandAmp(\"barkBandAmp\");\nBuffer barkBandWidth(\"barkWidth\");\n\noverlapCompensation = FFTHOP / (FFTSIZE * .5);\n\namp = in1;\nindex = in2;\n\nj = 0;\ni = ivector;\nk = 0;\nwidth = 0;\n\t\t\n\tif (index < (VECTORSIZE - 1)){\n\t//\tk = 0;\n\t\t// accumulate while the index is below (vectorsize - 1)\n\t\ti = peek(barkIndex,index,0);\n\t\t//ii = peek(barkIndex,index-1,0);\n\t\t//ampSum = (i == ii) ? ampSum : 0;\n\t\tif(i==1){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,1);\n\t\t//poke(barkAmpli,ampSum,1,0,0);\n\t\t}\n\t\tif(i==2){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,2);\n\t\t}\n\t\tif(i==3){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,3);\n\t\t}\n\t\tif(i==4){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,4);\n\t\t}\n\t\t\n\t\tif(i==5){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,5);\n\t\t}\n\t\tif(i==6){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,6);\n\t\t}\n\t\tif(i==7){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,7);\n\t\t}\n\t\tif(i==8){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,8);\n\t\t}\n\t\tif(i==9){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,9);\n\t\t}\n\t\tif(i==10){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,10);\n\t\t}\n\t\tif(i==11){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,11);\n\t\t}\n\t\tif(i==12){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,12);\n\t\t}\n\t\tif(i==13){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,13);\n\t\t}\n\t\tif(i==14){\n\t\t\tampSum = 0;\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,14);\n\t\t}\n\t\tif(i==15){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,15);\n\t\t}\n\t\tif(i==16){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,16);\n\t\t}\n\t\tif(i==17){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,17);\n\t\t}\n\t\tif(i==18){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum,18);\n\t\t}\n\t\tif(i==19){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,19);\n\t\t}\n\t\tif(i==20){\n\t\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,20);\n\t\t}\n\t\tif(i==21){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,21);\n\t\t}\n\t\tif(i==22){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,22);\n\t\t}\n\t\tif(i==23){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,23);\n\t\t}\n\t\tif(i==24){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,24);\n\t\t}\n\t\tif(i==25){\n\t\tampSum = 0;\n\t\tampSum += amp;\n\t\twidth = peek(barkBandWidth,i,0);\n\t\tpoke(barkBandAmp,ampSum/width,25);\n\t\t}\t\n\t\t\t\t\n\t}\n\t\t\n\telse\t\n\t\n\t{\n\t\tfor(j = 0 ; j < 26 ; j+=1){\n\t\t\t\n\t\tampli = peek(barkBandAmp,j,0);\n\t\t\t\n\t\tpoke(barkAmpli,ampli,j,0,0);\n\t\t\n\t\tk = (j >= 25) ? 1 : 0;\n\t\t\n\t\t}\n\t\t\t\t\n\t}\n\tout1 = k;",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 16.0, 47.0, 534.0, 830.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 16.0, 9.0, 30.0, 23.0 ],
+					"text" : "in 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 531.0, 9.0, 30.0, 23.0 ],
+					"text" : "in 2"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+ ]
+	}
+
+}
