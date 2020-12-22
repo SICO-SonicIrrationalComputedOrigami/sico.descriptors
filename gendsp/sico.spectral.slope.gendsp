@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 6,
+			"revision" : 7,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,7 +40,7 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"code" : "History ampSum(0.);\nHistory freqSum(0.);\nHistory freqPow(0.);\nHistory freqByAmp(0.);\r\nHistory slopeVal(0.);\n\namp = in1;\nindex = in2;\n\noverlapCompensation = FFTHOP / (FFTSIZE * .5);\nbinFreq = SAMPLERATE / FFTSIZE * overlapCompensation;\n\nslope = slopeVal;\n\t\t\n\tif (index < (VECTORSIZE-1)){\n\t\t// accumulate while the index is below (vectorsize - 1)\n\t\tampSum += amp;\n\t\tfreqSum += index * binFreq;\n\t\tfreqByAmp += amp * (index * binFreq);\n\t\tfreqPow += pow(index * binFreq,2);\n\t\n\t\t}\n\t\telse\t\n\t\t{\n\t\t\t\n\t\tslope = (1/ampSum) * (((FFTSIZE * freqByAmp) - freqSum * ampSum)/FFTSIZE * freqPow - pow(freqSum,2));\n\n\t\tslopeVal = slope / FFTSIZE;\n\t\t\n\t\tampSum = 0;\n\t\tfreqSum = 0;\n\t\tfreqByAmp = 0;\n\t\tfreqPow = 0;\r\n\t\tslope = 0;\n\t\t\n\t\t}\n\t\nout1 = overlapCompensation * clamp(0.000000001 * slope ,-60,60);",
+					"code" : "History ampSum(0.);\nHistory freqSum(0.);\nHistory freqPow(0.);\nHistory freqByAmp(0.);\r\nHistory slopeVal(0.);\n\namp = in1;\nindex = in2;\n\noverlapCompensation = FFTHOP / (FFTSIZE * .5);\nbinFreq = SAMPLERATE / FFTSIZE; // * overlapCompensation;\n\nslope = slopeVal;\n\t\t\n\tif (index < (VECTORSIZE-1)){\n\t\t// accumulate while the index is below (vectorsize - 1)\n\t\tampSum += amp;\n\t\tfreqSum += index * binFreq;\n\t\tfreqByAmp += amp * (index * binFreq);\n\t\tfreqPow += pow(index * binFreq,2);\n\t\n\t\t}\n\t\telse\t\n\t\t{\n\t\t\t\n\t\tslope = (1/ampSum) * (((FFTSIZE * freqByAmp) - freqSum * ampSum)/FFTSIZE * freqPow - pow(freqSum,2));\n\n\t\tslopeVal = slope / FFTSIZE;\n\t\t\n\t\tampSum = 0;\n\t\tfreqSum = 0;\n\t\tfreqByAmp = 0;\n\t\tfreqPow = 0;\r\n\t\tslope = 0;\n\t\t\n\t\t}\n\t\nout1 = overlapCompensation * ((clamp(0.000000001 * slope ,-500,500))/500);",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
