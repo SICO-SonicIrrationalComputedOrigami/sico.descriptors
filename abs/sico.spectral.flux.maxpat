@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 6,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -57,8 +57,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 256.0, 91.0, 70.0, 23.0 ],
-					"text" : "route frame"
+					"patching_rect" : [ 256.0, 91.0, 76.0, 23.0 ],
+					"text" : "route frames"
 				}
 
 			}
@@ -70,6 +70,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 256.0, 59.0, 28.0, 23.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"text" : "in 2"
 				}
 
@@ -112,7 +116,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 6,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}

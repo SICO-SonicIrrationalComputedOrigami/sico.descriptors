@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 7,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -39,6 +39,16 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "ezdac~",
+					"numinlets" : 2,
+					"numoutlets" : 0,
+					"patching_rect" : [ 154.0, 128.0, 45.0, 45.0 ]
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"fontface" : 1,
@@ -84,7 +94,7 @@
 					"numoutlets" : 3,
 					"outlettype" : [ "int", "", "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 51.0, 271.0, 79.0, 22.0 ]
+					"patching_rect" : [ 51.0, 286.0, 79.0, 22.0 ]
 				}
 
 			}
@@ -116,7 +126,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 7,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -320,13 +330,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-13",
-					"linecount" : 9,
+					"linecount" : 8,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 368.0, 495.0, 193.0, 129.0 ],
-					"text" : "0. 0.016145 1.653875 3.784377 102.48185 547.332336 186.152481 3.04076 2.69682 0.083939 0.176897 0.194358 0.096244 0.033954 0.028599 0.018887 0.004916 0.000609 0.105163 0.011984 0.001363 0.001409 0.00017 0.000057 0.000004 0."
+					"patching_rect" : [ 368.0, 495.0, 193.0, 116.0 ],
+					"text" : "0. 0.000767 0.002732 0.030044 0.080026 0.117556 0.043851 0.164705 0.224829 0.154667 3.7 0.412342 30.266201 1.646321 2.690141 0.699293 0.374537 0.130056 0.085461 0.003697 0.01192 0.001492 0.000181 0.000666 0.00022 0."
 				}
 
 			}
@@ -371,7 +381,7 @@
 					"originaltempo" : 120.0,
 					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 257.0, 271.0, 150.0, 30.0 ],
+					"patching_rect" : [ 257.0, 286.0, 150.0, 30.0 ],
 					"pitchcorrection" : 0,
 					"quality" : "basic",
 					"timestretch" : [ 0 ]
@@ -384,7 +394,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 51.0, 355.0, 161.0, 22.0 ],
+					"patching_rect" : [ 51.0, 359.0, 161.0, 22.0 ],
 					"text" : "sico.fft.spectral.barks 1024 4"
 				}
 
@@ -435,7 +445,7 @@
 					"numinlets" : 6,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 154.0, 271.0, 71.5, 22.0 ],
+					"patching_rect" : [ 154.0, 286.0, 71.5, 22.0 ],
 					"text" : "biquad~"
 				}
 
@@ -465,7 +475,7 @@
 					"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 214.0, 128.0, 256.0, 128.0 ],
-					"setfilter" : [ 0, 3, 1, 0, 0, 252.155471801757812, 2.716106176376343, 18.772018432617188, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+					"setfilter" : [ 0, 3, 1, 0, 0, 862.76318359375, 1.003647208213806, 9.377047538757324, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 				}
 
 			}
@@ -624,9 +634,9 @@
 , 			{
 				"name" : "Default M4L",
 				"default" : 				{
+					"fontname" : [ "Arial Bold" ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -635,9 +645,9 @@
 , 			{
 				"name" : "Default M4L Poletti",
 				"default" : 				{
+					"fontname" : [ "Arial Bold" ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontsize" : [ 10.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -646,7 +656,7 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontface" : [ 1 ],
+					"fontname" : [ "Arial" ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -656,8 +666,8 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial" ]
+					"fontface" : [ 1 ],
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -683,6 +693,7 @@
 , 			{
 				"name" : "jbb",
 				"default" : 				{
+					"fontname" : [ "Arial" ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -692,8 +703,7 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 9.0 ],
-					"fontname" : [ "Arial" ]
+					"fontsize" : [ 9.0 ]
 				}
 ,
 				"parentstyle" : "",

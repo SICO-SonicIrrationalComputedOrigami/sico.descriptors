@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 7,
+			"revision" : 8,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -214,7 +214,7 @@
 					"outlettype" : [ "list", "float", "float", "float", "float", "list", "int" ],
 					"parameter_enable" : 0,
 					"patching_rect" : [ 174.0, 113.0, 256.0, 128.0 ],
-					"setfilter" : [ 0, 3, 1, 0, 0, 252.155471801757812, 2.716106176376343, 18.772018432617188, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+					"setfilter" : [ 0, 3, 1, 0, 0, 329.671112060546875, 2.836201667785645, 0.415776938199997, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 				}
 
 			}
@@ -318,7 +318,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 7,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -565,7 +565,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 1,
-							"revision" : 7,
+							"revision" : 8,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -600,18 +600,6 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
-								"box" : 								{
-									"id" : "obj-1",
-									"maxclass" : "newobj",
-									"numinlets" : 6,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 81.0, 230.0, 108.0, 22.0 ],
-									"text" : "scale 0. 1. 0. 1."
-								}
-
-							}
-, 							{
 								"box" : 								{
 									"comment" : "",
 									"id" : "obj-3",
@@ -720,16 +708,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 2 ],
-									"order" : 0,
-									"source" : [ "obj-30", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-32", 1 ],
-									"order" : 1,
 									"source" : [ "obj-30", 0 ]
 								}
 
@@ -743,14 +722,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-1", 0 ],
-									"order" : 0,
-									"source" : [ "obj-33", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-30", 0 ],
 									"source" : [ "obj-33", 1 ]
 								}
@@ -759,7 +730,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-32", 0 ],
-									"order" : 1,
 									"source" : [ "obj-33", 0 ]
 								}
 
@@ -805,8 +775,8 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 195.500024000000053, 353.96393346786499, 76.0, 60.0 ],
-					"text" : "Up to 4 FFT frame memory comparison"
+					"patching_rect" : [ 212.0, 349.96393346786499, 76.0, 60.0 ],
+					"text" : "Up to 4 FFT frames memory comparison"
 				}
 
 			}
@@ -817,8 +787,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 136.0, 387.96393346786499, 56.0, 22.0 ],
-					"text" : "frame $1"
+					"patching_rect" : [ 136.0, 387.96393346786499, 62.0, 22.0 ],
+					"text" : "frames $1"
 				}
 
 			}
@@ -826,6 +796,8 @@
 				"box" : 				{
 					"id" : "obj-42",
 					"maxclass" : "number",
+					"maximum" : 4,
+					"minimum" : 1,
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
@@ -1188,9 +1160,9 @@
 , 			{
 				"name" : "Default M4L",
 				"default" : 				{
+					"fontname" : [ "Arial Bold" ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1199,9 +1171,9 @@
 , 			{
 				"name" : "Default M4L Poletti",
 				"default" : 				{
+					"fontname" : [ "Arial Bold" ],
 					"patchlinecolor" : [ 0.290196, 0.309804, 0.301961, 0.85 ],
-					"fontsize" : [ 10.0 ],
-					"fontname" : [ "Arial Bold" ]
+					"fontsize" : [ 10.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1210,7 +1182,7 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontface" : [ 1 ],
+					"fontname" : [ "Arial" ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -1220,8 +1192,8 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial" ]
+					"fontface" : [ 1 ],
+					"fontsize" : [ 11.0 ]
 				}
 ,
 				"parentstyle" : "",
@@ -1247,6 +1219,7 @@
 , 			{
 				"name" : "jbb",
 				"default" : 				{
+					"fontname" : [ "Arial" ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -1256,8 +1229,7 @@
 						"proportion" : 0.39
 					}
 ,
-					"fontsize" : [ 9.0 ],
-					"fontname" : [ "Arial" ]
+					"fontsize" : [ 9.0 ]
 				}
 ,
 				"parentstyle" : "",
