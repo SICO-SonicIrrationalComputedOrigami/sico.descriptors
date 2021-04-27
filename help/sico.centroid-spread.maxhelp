@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 7,
+			"revision" : 10,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 995.0, 269.0, 618.0, 565.0 ],
+		"rect" : [ 34.0, 79.0, 618.0, 565.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -331,7 +331,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
+					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 73.0, 360.0, 215.0, 22.0 ],
 					"text" : "sico.fft.spectral.centroid-spread 1024 8"
 				}
@@ -459,6 +459,27 @@
 			}
  ],
 		"dependency_cache" : [ 			{
+				"name" : "sico.fft.spectral.centroid-spread.maxpat",
+				"bootpath" : "~/Documents/SICO/sico.descriptors/abs",
+				"patcherrelativepath" : "../abs",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sico.spectral.centroid-spread.maxpat",
+				"bootpath" : "~/Documents/SICO/sico.descriptors/abs",
+				"patcherrelativepath" : "../abs",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sico.centroid-spread.gendsp",
+				"bootpath" : "~/Documents/SICO/sico.descriptors/gendsp",
+				"patcherrelativepath" : "../gendsp",
+				"type" : "gDSP",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "drumLoop.aif",
 				"bootpath" : "C74:/media/msp",
 				"type" : "AIFF",
@@ -518,7 +539,6 @@
 , 			{
 				"name" : "Default M4L-1",
 				"default" : 				{
-					"fontface" : [ 1 ],
 					"bgfillcolor" : 					{
 						"type" : "gradient",
 						"color1" : [ 0.376471, 0.384314, 0.4, 1.0 ],
@@ -529,7 +549,8 @@
 					}
 ,
 					"fontsize" : [ 11.0 ],
-					"fontname" : [ "Arial" ]
+					"fontname" : [ "Arial" ],
+					"fontface" : [ 1 ]
 				}
 ,
 				"parentstyle" : "",

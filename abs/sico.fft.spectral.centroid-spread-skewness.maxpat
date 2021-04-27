@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 745.0, 459.0, 316.0, 270.0 ],
+		"rect" : [ 816.0, 697.0, 368.0, 278.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,25 +40,38 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"comment" : "Spectral Flatness",
+					"comment" : "Spectral Skewness",
+					"id" : "obj-4",
+					"index" : 3,
+					"maxclass" : "outlet",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 280.0, 170.0, 30.0, 30.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"comment" : "Spectral Spread",
 					"id" : "obj-3",
 					"index" : 2,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 218.0, 170.0, 30.0, 30.0 ]
+					"patching_rect" : [ 165.0, 170.0, 30.0, 30.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-1",
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "signal", "signal" ],
-					"patching_rect" : [ 50.0, 100.0, 187.0, 22.0 ],
-					"text" : "pfft~ sico.spectral.flatness #1 #2"
+					"numoutlets" : 3,
+					"outlettype" : [ "signal", "signal", "signal" ],
+					"patching_rect" : [ 50.0, 100.0, 249.0, 35.0 ],
+					"text" : "pfft~ sico.spectral.centroid-spread-skewness #1 #2"
 				}
 
 			}
@@ -70,14 +83,14 @@
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 50.0, 40.0, 30.0, 30.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"comment" : "Spectral Flatness",
+					"comment" : "Spectral Centroid",
 					"id" : "obj-6",
 					"index" : 1,
 					"maxclass" : "outlet",
@@ -92,6 +105,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
 					"source" : [ "obj-1", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-1", 2 ]
 				}
 
 			}

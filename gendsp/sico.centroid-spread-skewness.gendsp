@@ -1,0 +1,159 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 8,
+			"minor" : 1,
+			"revision" : 10,
+			"architecture" : "x64",
+			"modernui" : 1
+		}
+,
+		"classnamespace" : "dsp.gen",
+		"rect" : [ 733.0, 79.0, 1153.0, 859.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 12.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 1,
+		"gridsize" : [ 15.0, 15.0 ],
+		"gridsnaponopen" : 1,
+		"objectsnaponopen" : 1,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"lefttoolbarpinned" : 0,
+		"toptoolbarpinned" : 0,
+		"righttoolbarpinned" : 0,
+		"bottomtoolbarpinned" : 0,
+		"toolbars_unpinned_last_save" : 0,
+		"tallnewobj" : 0,
+		"boxanimatetime" : 200,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"style" : "",
+		"subpatcher_template" : "",
+		"assistshowspatchername" : 0,
+		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 1035.0, 805.0, 35.0, 22.0 ],
+					"text" : "out 3"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 555.5, 813.0, 36.0, 22.0 ],
+					"text" : "out 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "History centroidVal(0.);\r\nHistory spreadVal(0.);\r\nHistory centroidTemp(0.);\r\nHistory spreadTemp(0.);\r\nHistory spreadNum(0.);\r\nHistory centroidNum(0.);\r\nHistory centroidDen(0.);\r\nHistory skewnessNum(0.);\r\nHistory skewnessDen(0.);\r\nHistory skewnessTemp(0.);\r\nHistory skewnessVal(0.);\r\n\r\namp = in1;\r\nindex = in2;\r\n\r\noverlapCompensation = FFTHOP / (FFTSIZE * .5);\r\nbinFreq = SAMPLERATE / FFTSIZE;\r\n\r\ncentroid = centroidVal;\r\nspread = spreadVal;\r\nskewness = skewnessVal;\r\ncentroidTemp = centroid;\r\nspreadTemp = spread;\r\n\t\t\r\n\tif (index < (VECTORSIZE-1)){\r\n\r\n\t\tcentroidNum += amp * (binFreq * index);\r\n\t\tcentroidDen += amp;\r\n\t\t\r\n\t\tspreadNum += abs((((binFreq * index) - centroidTemp) * ((binFreq * index) - centroidTemp)) * amp);\r\n\t\tskewnessNum += pow(((binFreq * index) - centroidTemp) , 3)  * amp;\r\n\t\tskewnessDen = pow(spreadTemp,3)  * centroidDen;\r\n\t\t\r\n\t\t}\r\n\t\t\telse\t\r\n\t\t{\r\n\t\t\t\t\r\n\t\tcentroid = (centroidNum / centroidDen);\t\t\r\n\t\tcentroidTemp = centroid;\r\n\t\t//centroid = centroid;\r\n\t\t\r\n\t\tspread = sqrt(spreadNum / centroidDen);\r\n\t\tspreadTemp = spread;\r\n\t\t//spread = spread;\r\n\t\t\r\n\t\tskewness = skewnessNum / skewnessDen;\r\n\t\tskewnessTemp = skewness;\r\n\t\t\r\n\t\tcentroidVal = centroid;\r\n\t\tspreadVal=spread;\r\n\t\tskewnessVal = skewness;\r\n\t\t\r\n\t\tcentroidTemp2 = centroidTemp;\r\n\r\n\t\tcentroidNum = 0;\r\n\t\tcentroidDen = 0;\r\n\t\tspreadNum = 0;\r\n\t\tskewnessNum = 0;\r\n\t\tskewnessDen = 0;\r\n\r\n\t\t}\r\n\t\t\t\r\nout1 = centroid * overlapCompensation;\r\nout2 = spread * overlapCompensation;\r\nout3 = skewness * overlapCompensation;\r\n\r\n",
+					"fontface" : 0,
+					"fontname" : "<Monospaced>",
+					"fontsize" : 12.0,
+					"id" : "obj-3",
+					"maxclass" : "codebox",
+					"numinlets" : 2,
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 76.0, 59.0, 978.0, 727.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 76.0, 21.0, 30.0, 23.0 ],
+					"text" : "in 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1035.0, 13.0, 30.0, 23.0 ],
+					"text" : "in 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 76.0, 813.0, 37.0, 23.0 ],
+					"text" : "out 1"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-3", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"source" : [ "obj-3", 2 ]
+				}
+
+			}
+ ],
+		"autosave" : 0
+	}
+
+}

@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 1,
-			"revision" : 7,
+			"revision" : 10,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "dsp.gen",
-		"rect" : [ 1338.0, 285.0, 642.0, 725.0 ],
+		"rect" : [ 885.0, 98.0, 761.0, 820.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,16 +40,29 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"code" : "History flatnessVal(0.);\r\nHistory flatness(0.);\r\nHistory flatnessNum(0.);\r\nHistory flatnessDen(0.);\r\n\r\namp = in1;\r\nindex = in2;\r\n\r\nhalfFFT = FFTSIZE * .5;\r\noverlapCompensation = FFTHOP / halfFFT ;\r\n\r\nfreq = overlapCompensation * SAMPLERATE / FFTSIZE;\r\nflatness = flatnessVal;\r\nproduct = 1;\t\r\n\t\r\n\tif (index < (VECTORSIZE-1)){\t\t\r\n\t\t// accumulate while the index is below (vectorsize - 1)\r\n\t\tflatnessNum = (amp * (index * freq)) * product;\r\n\t\tflatnessDen += amp * (index * freq);\r\n\t\t\t\t\r\n\t\t}\r\n\t\t\telse\t\r\n\t\t{\r\n\t\t\t\r\n\t\tflatnessNum = pow(flatnessNum, (1/halfFFT));\r\n\t\tflatnessDen = (1/halfFFT) * flatnessDen;\t\r\n\t\t\t\r\n\t\tflatness = flatnessNum / flatnessDen;\t\t\r\n\t\tflatness = flatness;\r\n\r\n\t\tflatnessVal=flatnessNum;\r\n\r\n\t\tflatnessNum = 0;\r\n\t\tflatnessDen = 0;\r\n\r\n\t\t}\r\n\t\t\t\r\nout1 = 10 * (clamp(((flatness * overlapCompensation) - 0.465),0, 1));",
+					"fontname" : "Lato",
+					"fontsize" : 12.0,
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 641.0, 721.0, 36.0, 23.0 ],
+					"text" : "out 2"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "History product(0.);\r\nHistory flatness(0.);\r\nHistory flatnessNum(0.);\r\nHistory flatnessDen(0.);\r\n//flatnessNum = 1;\r\nHistory flatnessVal(0.);\r\nampt = 1;\r\n//product = 1;\r\namp = in1;\r\nindex = in2;\r\n\r\nhalfVec = FFTSIZE / 2;\r\noverlapCompensation = FFTHOP / halfVec ;\r\n\r\nfreq = (SAMPLERATE / FFTSIZE);\r\nflatness = flatnessVal;\r\n\t\r\n\tif (index < (halfVec-1)) {\r\n\t\t\r\n\t\t//product = ampt;\t\r\n\t\t//amp = (amp < .1) ? 1 :  amp;\t\r\n\t\t// accumulate while the index is below (vectorsize - 1)\r\n\t\tflatnessNum = amp * flatnessNum;// * (index * freq)) * product;\r\n\t\tflatnessDen += amp; //* (index * freq);\r\n\t\t\t\t\r\n\t}\r\n\telse {\t\r\n\t\t\t\r\n\t\tflatnessNum = pow(flatnessNum,(1/(halfVec)));\r\n\t\tflatnessDen = (1/(halfVec)) * flatnessDen;\r\n\t\t\r\n\t\tflatness = flatnessNum / flatnessDen;\t\r\n\t\t\r\n\t\tflatnessNum = 1;\r\n\t\tflatnessVal = flatness;\r\n\t}\r\n\t\t\t\r\nout1 =  flatness * overlapCompensation;\r\nout2 = halfVec* overlapCompensation;",
 					"fontface" : 0,
 					"fontname" : "<Monospaced>",
 					"fontsize" : 12.0,
 					"id" : "obj-3",
 					"maxclass" : "codebox",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 31.0, 59.0, 569.0, 597.0 ]
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 31.0, 59.0, 642.0, 642.0 ]
 				}
 
 			}
@@ -76,7 +89,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 581.0, 21.0, 30.0, 23.0 ],
+					"patching_rect" : [ 654.0, 21.0, 30.0, 23.0 ],
 					"text" : "in 2"
 				}
 
@@ -89,7 +102,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 31.0, 670.0, 37.0, 23.0 ],
+					"patching_rect" : [ 31.0, 721.0, 37.0, 23.0 ],
 					"text" : "out 1"
 				}
 
@@ -113,6 +126,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-3", 1 ]
 				}
 
 			}
