@@ -10,6 +10,7 @@ Descriptors list:
 - Spectral Kurtosis
 - Spectral Flatness
 - Spectral Entropy
+- Spectral Crest
 - Spectral Flux
 - Spectral High Frequency Content
 - Spectral Slope
